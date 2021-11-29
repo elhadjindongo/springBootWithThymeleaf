@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Ajouter un ordinateur</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<!--TODO: Must find a way to include this menu otherwise code is duplicated in all html pages-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">GestionOrdi UVS</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<p></p>
+<section>
+    <article class="card">
+        <span class="card-header text-center">Nouveau Ordinateur</span>
+        <div class="card-body">
+            <form th:action="@{/ordinateurs}" th:object="${ordinateurForm}" method="post">
+                <div class="input-group addBottomMarge">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text">Type de l'Ordinateur :</span>
+                    </div>
+                    <input type="text" class="form-control" th:field="*{type}">
+
+                </div>
+                <div class="input-group addBottomMarge">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text">Ram de l'Ordinateur :</span>
+                    </div>
+                    <input type="text" class="form-control" th:field="*{ram}">
+
+                </div>
+                <div class="input-group addBottomMarge">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text">Processeur de l'Ordinateur :</span>
+                    </div>
+                    <input type="text" class="form-control" th:field="*{processeur}">
+
+                </div>
+                <div class="input-group addBottomMarge">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text">Marque de l'Ordinateur :</span>
+                    </div>
+                    <input type="text" class="form-control" th:field="*{marque}">
+
+                </div>
+                <div class="input-group addBottomMarge">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text">Capacite du disque :</span>
+                    </div>
+                    <input type="text" class="form-control" th:field="*{capaciteDisque}">
+
+                </div>
+                <div class="input-group addBottomMarge"></div>
+                <p></p>
+                <button type="submit" class="btn btn-success align-center">Ajouter</button>
+            </form>
+            <div class="card-header bg-danger text-white" th:if="${errorMessage}" th:utext="${errorMessage}">
+            </div>
+        </div>
+    </article>
+
+</section>
+<!--TODO: Must find a way to include this footer otherwise code is duplicated in all html pages-->
+<footer class="myFooter bg-dark">
+    <blockquote class="blockquote myfooterText">
+        <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
+    </blockquote>
+</footer>
+</body>
+</html>

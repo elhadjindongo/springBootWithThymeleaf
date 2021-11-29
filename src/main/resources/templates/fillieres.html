@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title>Fillieres</title>
+</head>
+<body>
+<!--TODO: Must find a way to include this menu otherwise code is duplicated in all html pages-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">GestionOrdi UVS</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<p></p>
+<section>
+    <article>
+<span>
+<a th:href="@{/fillieres/add}" class="btn btn-success">Ajouter une Filliere</a>
+</span>
+    </article>
+    <article class="card">
+			<span class="card-header text-center addBottomMarge">Liste des
+				Fillieres</span>
+        <table class="table table-hover">
+            <thead class="thead-light ">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="filliere : ${listFillieres}">
+                <td th:text="${filliere.idFilliere}"></td>
+                <td th:text="${filliere.nomFilliere}"></td>
+                <td>
+                    <!--TODO: Not yet implemented : must find a way to correctly pass the id, ask for confirmation before performe delete operation-->
+                    <a th:href="@{/fillieres/${filliere.idFilliere}}" class="btn btn-sm btn-outline-warning">Modifier</a>
+                    <form th:action="@{/etudiants}" method="DELETE">
+                        <input type="hidden" th:value="${filliere.idFilliere}" />
+                        <a onclick="this.parentNode.submit();"
+                           class="btn btn-sm btn-outline-danger">Supprimer</a>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
+</section>
+<!--TODO: Must find a way to include this footer otherwise code is duplicated in all html pages-->
+<footer class="myFooter bg-dark">
+    <blockquote class="blockquote myfooterText">
+        <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
+    </blockquote>
+</footer>
+
+</body>
+</html>

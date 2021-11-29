@@ -1,0 +1,107 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+  <title>Etudiants</title>
+</head>
+<body>
+<!--TODO: Must find a way to include this menu otherwise code is duplicated in all html pages-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <span class="navbar-brand">GestionOrdi UVS</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
+      <li class="nav-item ">
+        <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<p></p>
+<section>
+  <article>
+<span>
+<a th:href="@{/etudiants/add}" class="btn btn-success">Ajouter un.e etudiant.e</a>
+</span>
+  </article>
+  <article class="card">
+			<span class="card-header text-center addBottomMarge">Liste des
+				Etudiants.es</span>
+    <table class="table table-hover">
+      <thead class="thead-light ">
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th>Filliere</th>
+        <th>Ordinateur</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="etudiant : ${listEtudiants}">
+        <td th:text="${etudiant.idEtudiant}"></td>
+        <td th:text="${etudiant.nom}"></td>
+        <td th:text="${etudiant.prenom}"></td>
+        <td th:text="${etudiant.email}"></td>
+        <td th:text="${etudiant.phone}"></td>
+        <td th:text="${etudiant.filliere.nomFilliere}"></td>
+        <td>
+          <div>
+            <span class="font-weight-bold">Marque</span>
+            <span th:text="${etudiant.ordinateur.marque}"></span>
+          </div>
+          <div>
+            <span class="font-weight-bold">Type</span>
+            <span th:text="${etudiant.ordinateur.type}"></span>
+          </div>
+          <div>
+            <span class="font-weight-bold">Ram</span>
+            <span th:text="${etudiant.ordinateur.ram}"></span>
+          </div>
+          <div>
+            <span class="font-weight-bold">Processeur</span>
+            <span th:text="${etudiant.ordinateur.processeur}"></span>
+          </div>
+          <div>
+            <span class="font-weight-bold">Disque Dur</span>
+            <span th:text="${etudiant.ordinateur.capaciteDisque}"></span>
+          </div>
+        </td>
+        <td>
+          <!--TODO: Not yet implemented : must find a way to correctly pass the id, ask for confirmation before performe delete operation-->
+
+          <a href="modifierEtudiant?id=${etudiant.idEtudiant}"
+               class="btn btn-sm btn-outline-warning">Modifier</a>
+          <a href="supprimerFilliere?id=${filliere.idFilliere}"
+             onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
+             class="btn btn-sm btn-outline-danger">Supprimer</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+<!--TODO: Must find a way to include this footer otherwise code is duplicated in all html pages-->
+<footer class="myFooter bg-dark">
+  <blockquote class="blockquote myfooterText">
+    <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
+  </blockquote>
+</footer>
+
+</body>
+</html>

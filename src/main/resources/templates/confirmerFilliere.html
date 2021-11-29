@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Nouvelle filliere</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<!--TODO: Must find a way to include this menu otherwise code is duplicated in all html pages-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">GestionOrdi UVS</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="card">
+    <header class="card-header bg-success text-white">
+        <span>Filliere ajouter avec success</span>
+    </header>
+    <article class="card-body">
+        <section class="card-text">
+            <div>
+                <span class="font-weight-bold">ID</span> <span class="lead" th:text="${filliere.idFilliere}"></span>
+            </div>
+            <div>
+                <span class="font-weight-bold">Nom de la Filliere</span> <span
+                    class="lead" th:text="${filliere.nomFilliere}"></span>
+            </div>
+
+        </section>
+        <a th:href="@{/fillieres}" class="btn btn-sm btn-success">Aller vers la
+            liste des filliere</a>
+    </article>
+</section>
+
+<!--TODO: Must find a way to include this footer otherwise code is duplicated in all html pages-->
+<footer class="myFooter bg-dark">
+    <blockquote class="blockquote myfooterText">
+        <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
+    </blockquote>
+</footer>
+</body>
+</html>

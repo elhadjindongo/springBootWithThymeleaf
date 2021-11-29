@@ -1,0 +1,55 @@
+section {
+	padding: 8px;
+	margin: 8px;
+	margin-bottom: 20px;
+}
+
+article {
+	margin-bottom: 20px;
+}
+
+.margeR {
+	margin-right: 2px;
+}
+
+.addBottomMarge {
+	margin-bottom: 10px;
+}
+.addPad {
+	padding: 10px;
+	margin: 10px;
+}
+
+.addMB {
+	margin-bottom: 20px;
+}
+
+.addDoublePad {
+	margin: 20;
+	padding: 20;
+}
+
+.customTitle {
+	font-size: 10px;
+}
+
+.author, .simulation {
+	margin: auto;
+	padding: auto;
+	text-align: center;
+}
+
+img {
+	margin: 10px;
+}
+
+.myfooter {
+	height: 145px;
+	margin-top: 10px;
+}
+
+.myfooterText {
+	padding-top: 35px;
+	text-align: center;
+	font-size: medium;
+}
