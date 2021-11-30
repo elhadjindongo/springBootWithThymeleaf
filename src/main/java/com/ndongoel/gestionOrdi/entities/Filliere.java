@@ -2,7 +2,7 @@ package com.ndongoel.gestionOrdi.entities;
 
 /***********************************************************************
  * Module:  Filliere.java
- * Author:  Fatou Seck
+ * Author:  El Hadji M. NDONGO
  * Purpose: Defines the Class Filliere
  ***********************************************************************/
 
@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 @Entity

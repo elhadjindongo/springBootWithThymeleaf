@@ -6,11 +6,15 @@
 
 package com.ndongoel.gestionOrdi.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor @AllArgsConstructor
 public class OrdinateurForm {
 
+    private Long idOrdinateur;
     private String type;
     private String ram;
     private String processeur;

@@ -61,12 +61,12 @@
         <td th:text="${ordinateurs.marque}"></td>
         <td th:text="${ordinateurs.capaciteDisque}"></td>
         <td>
-          <!--TODO: Not yet implemented : must find a way to correctly pass the id, ask for confirmation before performe delete operation-->
-          <a href="modifierOrdinateur?id=${ordinateurs.idOrdinateur}"
-               class="btn btn-sm btn-outline-warning">Modifier</a>
-          <a href="supprimerOrdinateur?id=${ordinateurs.idOrdinateur}"
+          <a th:href="@{/ordinateurs/modify(id=${ordinateurs.idOrdinateur})}" class="btn btn-sm btn-outline-warning">Modifier</a>
+          <a th:href="@{/ordinateurs/delete(id=${ordinateurs.idOrdinateur})}"
              onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
-             class="btn btn-sm btn-outline-danger">Supprimer</a></td>
+             class="btn btn-sm btn-outline-danger">Supprimer</a>
+        </td>
+
       </tr>
       </tbody>
     </table>

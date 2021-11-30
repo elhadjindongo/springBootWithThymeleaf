@@ -53,13 +53,10 @@
                 <td th:text="${filliere.idFilliere}"></td>
                 <td th:text="${filliere.nomFilliere}"></td>
                 <td>
-                    <!--TODO: Not yet implemented : must find a way to correctly pass the id, ask for confirmation before performe delete operation-->
-                    <a th:href="@{/fillieres/${filliere.idFilliere}}" class="btn btn-sm btn-outline-warning">Modifier</a>
-                    <form th:action="@{/etudiants}" method="DELETE">
-                        <input type="hidden" th:value="${filliere.idFilliere}" />
-                        <a onclick="this.parentNode.submit();"
-                           class="btn btn-sm btn-outline-danger">Supprimer</a>
-                    </form>
+                    <a th:href="@{/fillieres/modify(id=${filliere.idFilliere})}" class="btn btn-sm btn-outline-warning">Modifier</a>
+                    <a th:href="@{/fillieres/delete(id=${filliere.idFilliere})}"
+                       onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
+                       class="btn btn-sm btn-outline-danger">Supprimer</a></td>
                 </td>
             </tr>
             </tbody>

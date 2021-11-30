@@ -6,10 +6,13 @@
 
 package com.ndongoel.gestionOrdi.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
+@Data @NoArgsConstructor @AllArgsConstructor
 public class EtudiantForm {
+    private Long idEtudiant;
     private String prenom;
     private String nom;
     private String email;

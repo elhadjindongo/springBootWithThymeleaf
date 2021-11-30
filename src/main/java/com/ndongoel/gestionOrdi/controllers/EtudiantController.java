@@ -1,16 +1,24 @@
+/********************************************************/
+/****** Created by El Hadji M. NDONGO ******************/
+/****** on 11/26/2021 ************************************/
+/****** Project: gestionOrdi *********************/
+/****************************************************/
+
 package com.ndongoel.gestionOrdi.controllers;
 
-import com.ndongoel.gestionOrdi.dao.EtudiantDao;
 import com.ndongoel.gestionOrdi.dao.FilliereDao;
 import com.ndongoel.gestionOrdi.dao.OrdinateurDao;
 import com.ndongoel.gestionOrdi.entities.Etudiant;
-import com.ndongoel.gestionOrdi.entities.Filliere;
 import com.ndongoel.gestionOrdi.entities.Ordinateur;
 import com.ndongoel.gestionOrdi.models.EtudiantForm;
+import com.ndongoel.gestionOrdi.dao.EtudiantDao;
+import com.ndongoel.gestionOrdi.entities.Filliere;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -22,6 +30,8 @@ public class EtudiantController {
     private FilliereDao filliereDao;
     @Autowired
     private OrdinateurDao ordinateurDao;
+
+    //TODO: Handle DB Errors
 
     @GetMapping("/etudiants/add")
     public String addEtudiant(ModelMap model) {
@@ -39,6 +49,7 @@ public class EtudiantController {
 
     @GetMapping("/etudiants")
     public String getAllEtudiants(ModelMap model) {
+        //TODO: Implements Pageable
         List<Etudiant> listEtudiants = etudiantDao.findAll();
         model.addAttribute("listEtudiants", listEtudiants);
         return "etudiants";
@@ -52,34 +63,73 @@ public class EtudiantController {
                 etudiantForm.getEmail().isEmpty() ||
                 etudiantForm.getPhone().isEmpty()
         ) {
-            //TODO: it not working.Must find a way to indicate the error to the client (precise input) & prefill inputs with received values
+            //TODO: it's not working.Must find a way to indicate the error to the client (precise input) & prefill inputs with received values
+
             model.addAttribute("errorMessage", "Erreure! Veuillez remplir tout les champs. ");
-            return "redirect:/etudiants/add";
+            //Getting the All Ordinateurs
+            List<Ordinateur> ordinateurList = ordinateurDao.findAll();
+            //Getting the All fillieres
+            List<Filliere> filliereList = filliereDao.findAll();
+
+            model.addAttribute("ordinateurList", ordinateurList);
+            model.addAttribute("filliereList", filliereList);
+            model.addAttribute("etudiantForm", etudiantForm);
+            return "addEtudiant";
         }
 
         //Recuperation de la Filliere
         Filliere filliere = filliereDao.getById(etudiantForm.getFilliereId());
-        System.out.println("************************************* Filliere "+filliere);
         //Recuperation de Ordinateur
         Ordinateur ordinateur = ordinateurDao.getById(etudiantForm.getOrdinateurId());
-        System.out.println("************************************* Ordinateur "+ordinateur);
         //Contruction de Etudiant
-        Etudiant etudiant = new Etudiant(null, etudiantForm.getPrenom(), etudiantForm.getNom(), etudiantForm.getEmail(), etudiantForm.getPhone(),ordinateur,filliere);
-        System.out.println("************************************* Etudiant "+etudiantForm);
+        Etudiant etudiant = null;
+        if (etudiantForm.getIdEtudiant() == null) {
+            etudiant = new Etudiant(null,
+                    etudiantForm.getPrenom(),
+                    etudiantForm.getNom(),
+                    etudiantForm.getEmail(),
+                    etudiantForm.getPhone(),
+                    ordinateur, filliere);
+        }else {
+             etudiant = new Etudiant(etudiantForm.getIdEtudiant(),
+                    etudiantForm.getPrenom(),
+                    etudiantForm.getNom(),
+                    etudiantForm.getEmail(),
+                    etudiantForm.getPhone(),
+                    ordinateur, filliere);
+        }
         etudiantDao.save(etudiant);
         model.addAttribute("etudiant", etudiant);
         return "confirmerEtudiant";
 
     }
 
+    @GetMapping("/etudiants/delete")
     public String deleteEtudiant(Long id) {
-        //TODO: implement delete Etudiant
+        etudiantDao.deleteById(id);
         return "redirect:/etudiant";
 
     }
 
+    @GetMapping("/etudiants/modify")
     public String ModifyEtudiant(ModelMap model, Long id) {
-        //TODO : Implements modify Etudiant
-        return "null";
+        Etudiant etudiant = etudiantDao.getById(id);
+        EtudiantForm etudiantForm = new EtudiantForm(
+                etudiant.getIdEtudiant(),
+                etudiant.getPrenom(),
+                etudiant.getNom(),
+                etudiant.getEmail(),
+                etudiant.getPhone(),
+                etudiant.getOrdinateur().getIdOrdinateur(),
+                etudiant.getFilliere().getIdFilliere());
+        //Getting the All Ordinateurs
+        List<Ordinateur> ordinateurList = ordinateurDao.findAll();
+        //Getting the All fillieres
+        List<Filliere> filliereList = filliereDao.findAll();
+
+        model.addAttribute("ordinateurList", ordinateurList);
+        model.addAttribute("filliereList", filliereList);
+        model.addAttribute("etudiantForm", etudiantForm);
+        return "addEtudiant";
     }
 }

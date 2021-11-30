@@ -9,7 +9,7 @@ import lombok.ToString;
 
 /***********************************************************************
  * Module:  Etudiant.java
- * Author:  Fatou Seck
+ * Author:  El Hadji M. NDONGO
  * Purpose: Defines the Class Etudiant
  ***********************************************************************/
 

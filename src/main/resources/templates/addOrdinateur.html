@@ -34,42 +34,45 @@
 <p></p>
 <section>
     <article class="card">
+        <!--TODO: Modify the title when it's a modification-->
         <span class="card-header text-center">Nouveau Ordinateur</span>
         <div class="card-body">
             <form th:action="@{/ordinateurs}" th:object="${ordinateurForm}" method="post">
                 <div class="input-group addBottomMarge">
+                    <input  th:if="${ordinateurForm.idOrdinateur}" th:field="*{idOrdinateur}" th:value="${ordinateurForm.idOrdinateur}" hidden>
+
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Type de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{type}">
+                    <input type="text" class="form-control" th:value="@{ordinateurForm.type}" th:field="*{type}">
 
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Ram de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{ram}">
+                    <input type="text" class="form-control" th:value="@{ordinateurForm.ram}" th:field="*{ram}">
 
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Processeur de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{processeur}">
+                    <input type="text" class="form-control" th:value="@{ordinateurForm.processeur}" th:field="*{processeur}">
 
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Marque de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{marque}">
+                    <input type="text" class="form-control" th:value="@{ordinateurForm.marque}" th:field="*{marque}">
 
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Capacite du disque :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{capaciteDisque}">
+                    <input type="text" class="form-control" th:value="@{ordinateurForm.capaciteDisque}" th:field="*{capaciteDisque}">
 
                 </div>
                 <div class="input-group addBottomMarge"></div>

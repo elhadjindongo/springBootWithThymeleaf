@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /***********************************************************************
  * Module:  Ordinateur.java
- * Author:  Fatou Seck
+ * Author:  El Hadji M. NDONGO
  * Purpose: Defines the Class Ordinateur
  ***********************************************************************/
 

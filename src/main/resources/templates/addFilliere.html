@@ -34,14 +34,17 @@
 <p></p>
 <section>
     <article class="card">
-        <span class="card-header text-center">Nouvelle filliere</span>
+        <!--TODO: Modify the title when it's a modification-->
+        <span class="card-header text-center" >Nouvelle filliere</span>
         <div class="card-body">
             <form th:action="@{/fillieres}" th:object="${filliereForm}" method="post">
                 <div class="input-group addBottomMarge">
+                    <input  th:if="${filliereForm.idFilliere}" th:field="*{idFilliere}" th:value="${filliereForm.idFilliere}" hidden>
+
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Nom de la Filliere :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{nomFilliere}">
+                    <input type="text" class="form-control" th:value="${filliereForm.nomFilliere}" th:field="*{nomFilliere}">
 
                 </div>
                 <div class="input-group addBottomMarge"></div>

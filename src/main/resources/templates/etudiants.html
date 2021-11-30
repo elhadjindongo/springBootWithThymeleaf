@@ -84,13 +84,11 @@
           </div>
         </td>
         <td>
-          <!--TODO: Not yet implemented : must find a way to correctly pass the id, ask for confirmation before performe delete operation-->
-
-          <a href="modifierEtudiant?id=${etudiant.idEtudiant}"
-               class="btn btn-sm btn-outline-warning">Modifier</a>
-          <a href="supprimerFilliere?id=${filliere.idFilliere}"
+          <a th:href="@{/etudiants/modify(id=${etudiant.idEtudiant})}" class="btn btn-sm btn-outline-warning">Modifier</a>
+          <a th:href="@{/etudiants/delete(id=${etudiant.idEtudiant})}"
              onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
-             class="btn btn-sm btn-outline-danger">Supprimer</a></td>
+             class="btn btn-sm btn-outline-danger">Supprimer</a>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -34,9 +34,12 @@
 <p></p>
 <section>
     <article class="card">
+        <!--TODO: Modify the title when it's a modification-->
         <span class="card-header text-center">Nouveau.elle Etudiant.e</span>
         <div class="card-body">
             <form th:action="@{/etudiants}" th:object="${etudiantForm}" method="post">
+                <input  th:if="${etudiantForm.idEtudiant}" th:field="*{idEtudiant}" th:value="${etudiantForm.idEtudiant}" hidden>
+
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Nom :</span>
