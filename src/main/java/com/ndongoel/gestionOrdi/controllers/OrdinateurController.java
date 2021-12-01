@@ -6,21 +6,21 @@
 
 package com.ndongoel.gestionOrdi.controllers;
 
-import com.ndongoel.gestionOrdi.models.OrdinateurForm;
 import com.ndongoel.gestionOrdi.dao.OrdinateurDao;
 import com.ndongoel.gestionOrdi.entities.Ordinateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class OrdianteurController {
+public class OrdinateurController {
     @Autowired
     private OrdinateurDao ordinateurDao;
 
@@ -34,10 +34,11 @@ public class OrdianteurController {
 
     @GetMapping("/ordinateurs/add")
     public String addOrdinateurs(ModelMap model) {
-        OrdinateurForm ordinateurForm = new OrdinateurForm();
-        model.addAttribute("ordinateurForm", ordinateurForm);
+        Ordinateur ordinateur = new Ordinateur();
+        model.addAttribute("ordinateur", ordinateur);
         return "addOrdinateur";
     }
+
 
     @GetMapping("/ordinateurs")
     public String getAllOrdinateurs(ModelMap model) {
@@ -48,34 +49,11 @@ public class OrdianteurController {
     }
 
     @PostMapping("/ordinateurs")
-    public String saveFilliere(@ModelAttribute("ordinateurForm") OrdinateurForm ordinateurForm, ModelMap model) {
-        //TODO: Field validation
-        if (ordinateurForm.getRam().isEmpty() ||
-                ordinateurForm.getMarque().isEmpty() ||
-                ordinateurForm.getType().isEmpty() ||
-                ordinateurForm.getProcesseur().isEmpty() ||
-                ordinateurForm.getCapaciteDisque().isEmpty()
-        ) {
-
-            model.addAttribute("errorMessage", "Erreure! Veuillez remplir tout les champs. ");
-            model.addAttribute("ordinateurForm", ordinateurForm);
+    public String saveFilliere(@Valid Ordinateur ordinateur, ModelMap model, BindingResult bindingResult) {
+        //TODO: The code below is not working. Must catch the validation exception...user gets an error page
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("ordinateur", ordinateur);
             return "addOrdinateur";
-        }
-        Ordinateur ordinateur= null;
-        if (ordinateurForm.getIdOrdinateur() == null) {
-            ordinateur = new Ordinateur(null,
-                    ordinateurForm.getType(),
-                    ordinateurForm.getRam(),
-                    ordinateurForm.getProcesseur(),
-                    ordinateurForm.getMarque(),
-                    ordinateurForm.getCapaciteDisque());
-        }else {
-             ordinateur = new Ordinateur(ordinateurForm.getIdOrdinateur(),
-                    ordinateurForm.getType(),
-                    ordinateurForm.getRam(),
-                    ordinateurForm.getProcesseur(),
-                    ordinateurForm.getMarque(),
-                    ordinateurForm.getCapaciteDisque());
         }
         ordinateurDao.save(ordinateur);
         model.addAttribute("ordinateur", ordinateur);
@@ -92,8 +70,7 @@ public class OrdianteurController {
     @GetMapping("/ordinateurs/modify")
     public String ModifyOrdinateurs(ModelMap model, Long id) {
         Ordinateur ordinateur = ordinateurDao.getById(id);
-        OrdinateurForm ordinateurForm = new OrdinateurForm(ordinateur.getIdOrdinateur(), ordinateur.getType(), ordinateur.getRam(), ordinateur.getProcesseur(), ordinateur.getMarque(), ordinateur.getCapaciteDisque());
-        model.addAttribute("ordinateurForm", ordinateurForm);
+        model.addAttribute("ordinateur", ordinateur);
         return "addOrdinateur";
     }
 }

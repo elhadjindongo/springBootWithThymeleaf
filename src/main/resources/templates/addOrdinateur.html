@@ -37,50 +37,51 @@
         <!--TODO: Modify the title when it's a modification-->
         <span class="card-header text-center">Nouveau Ordinateur</span>
         <div class="card-body">
-            <form th:action="@{/ordinateurs}" th:object="${ordinateurForm}" method="post">
+            <form th:action="@{/ordinateurs}" method="post">
                 <div class="input-group addBottomMarge">
-                    <input  th:if="${ordinateurForm.idOrdinateur}" th:field="*{idOrdinateur}" th:value="${ordinateurForm.idOrdinateur}" hidden>
+                    <input  th:if="${ordinateur.idOrdinateur}" name="idOrdinateur" th:value="${ordinateur.idOrdinateur}" hidden>
 
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Type de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:value="@{ordinateurForm.type}" th:field="*{type}">
-
+                    <input type="text" class="form-control" name="type" th:value="${ordinateur.type}" >
+                    <span class="text-danger" th:errors="${ordinateur.type}" ></span>
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Ram de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:value="@{ordinateurForm.ram}" th:field="*{ram}">
-
+                    <input type="text" class="form-control" name="ram" th:value="${ordinateur.ram}" >
+                    <!--TODO: Indicate the user that the unit is Giga Octet (Go)-->
+                    <span class="text-danger" th:errors="${ordinateur.ram}" ></span>
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Processeur de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:value="@{ordinateurForm.processeur}" th:field="*{processeur}">
-
+                    <input type="text" class="form-control" name="processeur" th:value="${ordinateur.processeur}" >
+                    <span class="text-danger" th:errors="${ordinateur.processeur}" ></span>
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Marque de l'Ordinateur :</span>
                     </div>
-                    <input type="text" class="form-control" th:value="@{ordinateurForm.marque}" th:field="*{marque}">
-
+                    <input type="text" class="form-control" name="marque" th:value="${ordinateur.marque}" >
+                    <span class="text-danger" th:errors="${ordinateur.marque}" ></span>
                 </div>
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Capacite du disque :</span>
                     </div>
-                    <input type="text" class="form-control" th:value="@{ordinateurForm.capaciteDisque}" th:field="*{capaciteDisque}">
+                    <input type="text" class="form-control" name="capaciteDisque" th:value="${ordinateur.capaciteDisque}">
+                    <!--TODO: Indicate the user that the unit is Giga Octet (Go)-->
+                   <span class="text-danger" th:errors="${ordinateur.capaciteDisque}" ></span>
 
                 </div>
                 <div class="input-group addBottomMarge"></div>
                 <p></p>
                 <button type="submit" class="btn btn-success align-center">Ajouter</button>
             </form>
-            <div class="card-header bg-danger text-white" th:if="${errorMessage}" th:utext="${errorMessage}">
-            </div>
         </div>
     </article>
 

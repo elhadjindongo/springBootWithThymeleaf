@@ -1,13 +1,13 @@
 package com.ndongoel.gestionOrdi.entities;
 
-import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.io.Serializable;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /***********************************************************************
  * Module:  Ordinateur.java
@@ -16,22 +16,35 @@ import java.io.Serializable;
  ***********************************************************************/
 
 
-
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 public class Ordinateur {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_ordinateur",length = 11)
-   private Long idOrdinateur;
-   @Column(length = 250)
-   private String type;
-   @Column(length = 45)
-   private String ram;
-   @Column(length = 45)
-   private String processeur;
-   @Column(length = 45)
-   private String marque;
-   @Column(name = "capacite_disque",length = 45)
-   private String capaciteDisque;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_ordinateur", length = 11)
+    private Long idOrdinateur;
+    @Column(length = 45, nullable = false)
+    @NotNull
+    @Size(min = 2, max = 45)
+    private String type;
+    @Column(length = 45, nullable = false)
+    @NotNull
+    @Size(min = 2, max = 45)
+    private String ram;
+    @Column(length = 45, nullable = false)
+    @NotNull
+    @Size(min = 2, max = 45)
+    private String processeur;
+    @NotNull
+    @Size(min = 2, max = 45)
+    @Column(length = 45, nullable = false)
+    private String marque;
+    @NotNull
+    @Size(min = 2, max = 45)
+    @Column(name = "capacite_disque", nullable = false, length = 45)
+    private String capaciteDisque;
 
 }
