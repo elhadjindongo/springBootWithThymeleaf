@@ -1,83 +1,53 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/main">
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-  <title>Ordinateurs</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title>Ordinateurs</title>
 </head>
 <body>
-<!--TODO: Must find a way to include this menu otherwise code is duplicated in all html pages-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <span class="navbar-brand">GestionOrdi UVS</span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
-      <li class="nav-item ">
-        <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<p></p>
-<section>
-  <article>
-<span>
-<a th:href="@{/ordinateurs/add}" class="btn btn-success">Ajouter un Ordinateur</a>
-</span>
-  </article>
-  <article class="card">
+<section layout:fragment="content">
+    <article>
+    <span>
+      <a th:href="@{/ordinateurs/add}" class="btn btn-success">Ajouter un Ordinateur</a>
+    </span>
+    </article>
+    <article class="card">
 			<span class="card-header text-center addBottomMarge">Liste des
 				Ordinateurs</span>
-    <table class="table table-hover">
-      <thead class="thead-light ">
-      <tr>
-        <th>Id</th>
-        <th>Type</th>
-        <th>Ram</th>
-        <th>Processeur</th>
-        <th>Marque</th>
-        <th>Capacite Disque</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="ordinateurs : ${ordinateurList}">
-        <td th:text="${ordinateurs.idOrdinateur}"></td>
-        <td th:text="${ordinateurs.type}"></td>
-        <td th:text="${ordinateurs.ram}"></td>
-        <td th:text="${ordinateurs.processeur}"></td>
-        <td th:text="${ordinateurs.marque}"></td>
-        <td th:text="${ordinateurs.capaciteDisque}"></td>
-        <td>
-          <a th:href="@{/ordinateurs/modify(id=${ordinateurs.idOrdinateur})}" class="btn btn-sm btn-outline-warning">Modifier</a>
-          <a th:href="@{/ordinateurs/delete(id=${ordinateurs.idOrdinateur})}"
-             onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
-             class="btn btn-sm btn-outline-danger">Supprimer</a>
-        </td>
+        <table class="table table-hover">
+            <thead class="thead-light ">
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Ram</th>
+                <th>Processeur</th>
+                <th>Marque</th>
+                <th>Capacite Disque</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ordinateurs : ${ordinateurList}">
+                <td th:text="${ordinateurs.idOrdinateur}"></td>
+                <td th:text="${ordinateurs.type}"></td>
+                <td th:text="${ordinateurs.ram}"></td>
+                <td th:text="${ordinateurs.processeur}"></td>
+                <td th:text="${ordinateurs.marque}"></td>
+                <td th:text="${ordinateurs.capaciteDisque}"></td>
+                <td>
+                    <a th:href="@{/ordinateurs/modify(id=${ordinateurs.idOrdinateur})}"
+                       class="btn btn-sm btn-outline-warning">Modifier</a>
+                    <a th:href="@{/ordinateurs/delete(id=${ordinateurs.idOrdinateur})}"
+                       onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
+                       class="btn btn-sm btn-outline-danger">Supprimer</a>
+                </td>
 
-      </tr>
-      </tbody>
-    </table>
-  </article>
+            </tr>
+            </tbody>
+        </table>
+    </article>
 </section>
-<!--TODO: Must find a way to include this footer otherwise code is duplicated in all html pages-->
-<footer class="myFooter bg-dark">
-  <blockquote class="blockquote myfooterText">
-    <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
-  </blockquote>
-</footer>
-
 </body>
 </html>

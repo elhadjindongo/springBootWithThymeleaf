@@ -1,0 +1,50 @@
+<!--------------------------------- ---->
+<!-- Created by El Hadji M. NDONGO ----->
+<!-- on 12/2/2021 ------------------------>
+<!-- Project: gestionOrdi ---------->
+<!-------------------------------------->
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title>Gestion des Ordinateurs</title>
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">GestionOrdi UVS</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</header>
+<section layout:fragment="content">
+
+</section>
+<footer class="myFooter bg-dark">
+    <blockquote class="blockquote myfooterText">
+        <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
+    </blockquote>
+</footer>
+</body>
+</html>

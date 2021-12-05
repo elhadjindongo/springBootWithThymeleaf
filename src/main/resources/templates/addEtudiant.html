@@ -1,4 +1,6 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/main">
 <head>
     <meta charset="utf-8">
     <title>Ajouter un.e etudiant.e</title>
@@ -6,33 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<!--TODO: Must find a way to include this menu otherwise code is duplicated in all html pages-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <span class="navbar-brand">GestionOrdi UVS</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-                <a class="nav-link" th:href="@{/etudiants}">Etudiants</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/ordinateurs}">Ordinateurs</a></li>
-            <li class="nav-item ">
-                <a class="nav-link" th:href="@{/fillieres}">Fillieres</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<p></p>
-<section>
+<section layout:fragment="content">
     <article class="card">
         <!--TODO: Modify the title when it's a modification-->
         <span class="card-header text-center">Nouveau.elle Etudiant.e</span>
@@ -103,11 +79,5 @@
     </article>
 
 </section>
-<!--TODO: Must find a way to include this footer otherwise code is duplicated in all html pages-->
-<footer class="myFooter bg-dark">
-    <blockquote class="blockquote myfooterText">
-        <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
-    </blockquote>
-</footer>
 </body>
 </html>
