@@ -21,10 +21,10 @@
             <tr>
                 <th>Id</th>
                 <th>Type</th>
-                <th>Ram</th>
+                <th>Ram en Go</th>
                 <th>Processeur</th>
                 <th>Marque</th>
-                <th>Capacite Disque</th>
+                <th>Capacite Disque en Go</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -32,10 +32,10 @@
             <tr th:each="ordinateurs : ${ordinateurList}">
                 <td th:text="${ordinateurs.idOrdinateur}"></td>
                 <td th:text="${ordinateurs.type}"></td>
-                <td th:text="${ordinateurs.ram}"></td>
+                <td th:text="${ordinateurs.ramEnGo}"></td>
                 <td th:text="${ordinateurs.processeur}"></td>
                 <td th:text="${ordinateurs.marque}"></td>
-                <td th:text="${ordinateurs.capaciteDisque}"></td>
+                <td th:text="${ordinateurs.capaciteDisqueEnGo}"></td>
                 <td>
                     <a th:href="@{/ordinateurs/modify(id=${ordinateurs.idOrdinateur})}"
                        class="btn btn-sm btn-outline-warning">Modifier</a>

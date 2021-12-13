@@ -6,20 +6,21 @@
 
 package com.ndongoel.gestionOrdi.controllers;
 
+import com.ndongoel.gestionOrdi.dao.EtudiantDao;
 import com.ndongoel.gestionOrdi.dao.FilliereDao;
 import com.ndongoel.gestionOrdi.dao.OrdinateurDao;
 import com.ndongoel.gestionOrdi.entities.Etudiant;
+import com.ndongoel.gestionOrdi.entities.Filliere;
 import com.ndongoel.gestionOrdi.entities.Ordinateur;
 import com.ndongoel.gestionOrdi.models.EtudiantForm;
-import com.ndongoel.gestionOrdi.dao.EtudiantDao;
-import com.ndongoel.gestionOrdi.entities.Filliere;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -56,16 +57,8 @@ public class EtudiantController {
     }
 
     @PostMapping("/etudiants")
-    public String saveEtudiant(@ModelAttribute("etudiantForm") EtudiantForm etudiantForm, ModelMap model) {
-        //TODO: Input validation (email,phone should be a Senegal phone number,nom & prenom must be only alphabetical letter)
-        if (etudiantForm.getNom().isEmpty() ||
-                etudiantForm.getPrenom().isEmpty() ||
-                etudiantForm.getEmail().isEmpty() ||
-                etudiantForm.getPhone().isEmpty()
-        ) {
-            //TODO: it's not working.Must find a way to indicate the error to the client (precise input) & prefill inputs with received values
-
-            model.addAttribute("errorMessage", "Erreure! Veuillez remplir tout les champs. ");
+    public String saveEtudiant(@Valid EtudiantForm etudiantForm, BindingResult bindingResult, ModelMap model) {
+        if (bindingResult.hasErrors()) {
             //Getting the All Ordinateurs
             List<Ordinateur> ordinateurList = ordinateurDao.findAll();
             //Getting the All fillieres
@@ -73,7 +66,6 @@ public class EtudiantController {
 
             model.addAttribute("ordinateurList", ordinateurList);
             model.addAttribute("filliereList", filliereList);
-            model.addAttribute("etudiantForm", etudiantForm);
             return "addEtudiant";
         }
 
@@ -90,8 +82,8 @@ public class EtudiantController {
                     etudiantForm.getEmail(),
                     etudiantForm.getPhone(),
                     ordinateur, filliere);
-        }else {
-             etudiant = new Etudiant(etudiantForm.getIdEtudiant(),
+        } else {
+            etudiant = new Etudiant(etudiantForm.getIdEtudiant(),
                     etudiantForm.getPrenom(),
                     etudiantForm.getNom(),
                     etudiantForm.getEmail(),

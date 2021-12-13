@@ -30,13 +30,14 @@ public class loadDb {
             Filliere filliere1 = new Filliere(null, "Mathematiques Appliquees et informatiques");
             Filliere filliere2 = new Filliere(null, "Multimedia informatiques et Communications");
             Filliere filliere3 = new Filliere(null, "Internet et Developpement Application");
+
             log.info("Preloading " + filliereDao.save(filliere1));
             log.info("Preloading " + filliereDao.save(filliere2));
             log.info("Preloading " + filliereDao.save(filliere3));
             //Ordinateur
-            Ordinateur ordinateur1 = new Ordinateur(null, "test", "2Go", "Duo core", "Lenonvo", "250 Go");
-            Ordinateur ordinateur2 = new Ordinateur(null, "test", "8Go", "core i5", "HP", "500 Go");
-            Ordinateur ordinateur3 = new Ordinateur(null, "test", "4Go", "core i7", "Dell", "1 To");
+            Ordinateur ordinateur1 = new Ordinateur(null, "test", 2, "Duo core", "Lenonvo", 250);
+            Ordinateur ordinateur2 = new Ordinateur(null, "test", 8, "core i5", "HP", 500 );
+            Ordinateur ordinateur3 = new Ordinateur(null, "test", 4, "core i7", "Dell", 1000);
             log.info("Preloading " + ordinateurDao.save(ordinateur1));
             log.info("Preloading " + ordinateurDao.save(ordinateur2));
             log.info("Preloading " + ordinateurDao.save(ordinateur3));

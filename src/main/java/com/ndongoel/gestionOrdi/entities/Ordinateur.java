@@ -1,3 +1,8 @@
+/***********************************************************************
+ * Module:  Ordinateur.java
+ * Author:  El Hadji M. NDONGO
+ * Purpose: Defines the Class Ordinateur
+ ***********************************************************************/
 package com.ndongoel.gestionOrdi.entities;
 
 import lombok.AllArgsConstructor;
@@ -8,12 +13,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-/***********************************************************************
- * Module:  Ordinateur.java
- * Author:  El Hadji M. NDONGO
- * Purpose: Defines the Class Ordinateur
- ***********************************************************************/
 
 
 @Data
@@ -27,13 +26,10 @@ public class Ordinateur {
     @Column(name = "id_ordinateur", length = 11)
     private Long idOrdinateur;
     @Column(length = 45, nullable = false)
-    @NotNull
-    @Size(min = 2, max = 45)
     private String type;
-    @Column(length = 45, nullable = false)
+    @Column(length = 5,name = "ram_en_go", nullable = false)
     @NotNull
-    @Size(min = 2, max = 45)
-    private String ram;
+    private int ramEnGo;
     @Column(length = 45, nullable = false)
     @NotNull
     @Size(min = 2, max = 45)
@@ -43,8 +39,7 @@ public class Ordinateur {
     @Column(length = 45, nullable = false)
     private String marque;
     @NotNull
-    @Size(min = 2, max = 45)
-    @Column(name = "capacite_disque", nullable = false, length = 45)
-    private String capaciteDisque;
+    @Column(name = "capacite_disque_en_go", nullable = false, length = 45)
+    private int capaciteDisqueEnGo;
 
 }

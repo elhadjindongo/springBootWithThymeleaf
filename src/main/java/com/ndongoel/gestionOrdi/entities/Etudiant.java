@@ -27,21 +27,12 @@ public class Etudiant {
     @Column(name = "id_edutiants", length = 11)
     private Long idEtudiant;
     @Column(length = 200, nullable = false)
-    @Size(min = 2, max = 200)
-    @NotNull
     private String prenom;
-    @Column(length = 45, nullable = false)
-    @NotNull
-    @Size(min = 2, max = 45)
+    @Column(length = 100, nullable = false)
     private String nom;
     @Column(length = 200, nullable = false)
-    @NotNull
-    @Size(min = 2, max = 200)
-    @Email
     private String email;
-    @Column(length = 20, nullable = false)
-    @NotNull
-    @Size(min = 6, max = 20)
+    @Column(length = 12, nullable = false)
     private String phone;
     @OneToOne
     public Ordinateur ordinateur;

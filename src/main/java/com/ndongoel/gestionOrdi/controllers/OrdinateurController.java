@@ -49,10 +49,9 @@ public class OrdinateurController {
     }
 
     @PostMapping("/ordinateurs")
-    public String saveFilliere(@Valid Ordinateur ordinateur, ModelMap model, BindingResult bindingResult) {
-        //TODO: The code below is not working. Must catch the validation exception...user gets an error page
+    public String saveFilliere(@Valid Ordinateur ordinateur, BindingResult bindingResult, ModelMap model) {
+
         if (bindingResult.hasErrors()) {
-            model.addAttribute("ordinateur", ordinateur);
             return "addOrdinateur";
         }
         ordinateurDao.save(ordinateur);
