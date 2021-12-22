@@ -1,5 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout/main">
+      layout:decorate="~{layout/main}">
 <head>
     <meta charset="utf-8">
     <title>Ajouter une filliere</title>
@@ -10,8 +10,9 @@
 
 <section layout:fragment="content">
     <article class="card">
-        <!--TODO: Modify the title when it's a modification-->
-        <span class="card-header text-center">Nouvelle filliere</span>
+        <span th:text="${operation}=='modification'?'Modification filliere':'Nouvelle filliere'"
+              class="card-header text-center"></span>
+
         <div class="card-body">
             <form th:action="@{/fillieres}" th:object="${filliere}" method="post">
                 <div class="input-group addBottomMarge">
@@ -20,13 +21,15 @@
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Nom de la Filliere :</span>
                     </div>
-                    <input type="text" class="form-control" th:field="*{nomFilliere}" th:value="${nomFilliere}" required>
-                     <span th:if="${#fields.hasErrors('nomFilliere')}" class="text-danger"
-                            th:errors="*{nomFilliere}"></span>
+                    <input type="text" class="form-control" th:field="*{nomFilliere}" th:value="${nomFilliere}"
+                           required>
+                    <span th:if="${#fields.hasErrors('nomFilliere')}" class="text-danger"
+                          th:errors="*{nomFilliere}"></span>
                 </div>
                 <div class="input-group addBottomMarge"></div>
                 <p></p>
-                <button type="submit" class="btn btn-success align-center">Ajouter</button>
+                <button type="submit" class="btn btn-success align-center"
+                        th:text="${operation}=='modification'?'Modifier': 'Ajouter' "></button>
             </form>
         </div>
     </article>

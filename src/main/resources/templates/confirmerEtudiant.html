@@ -1,5 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout/main">
+      layout:decorate="~{layout/main}">
 <head>
     <meta charset="utf-8">
     <title>Nouveau.elle etudiants</title>
@@ -7,10 +7,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<section class="card"  layout:fragment="content">
+<section class="card" layout:fragment="content">
     <header class="card-header bg-success text-white">
-        <!--TODO: Modify the message when it's a modification-->
-        <span>Etudiant.e ajoute.ee avec success</span>
+        <span th:text="${operation}=='modification'?'Etudiant.e modifié.e avec success':'Etudiant.e ajouté.e avec success'"></span>
     </header>
     <article class="card-body">
         <section class="card-text">
@@ -40,7 +39,7 @@
             <div>
                 <span class="font-weight-bold">Ordinateur</span> <span
                     class="lead"
-                    th:text="${etudiant.ordinateur.marque}+--+${etudiant.ordinateur.type}+--+${etudiant.ordinateur.ram}+--+${etudiant.ordinateur.processeur}+--+${etudiant.ordinateur.capaciteDisque}"></span>
+                    th:text="${etudiant.ordinateur.marque}+--+${etudiant.ordinateur.type}+--+${etudiant.ordinateur.ramEnGo}+--+${etudiant.ordinateur.processeur}+--+${etudiant.ordinateur.capaciteDisqueEnGo}"></span>
             </div>
 
         </section>

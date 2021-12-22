@@ -10,8 +10,8 @@
 <body>
 <section layout:fragment="content">
     <article class="card">
-        <!--TODO: Modify the title when it's a modification-->
-        <span class="card-header text-center">Nouveau.elle Etudiant.e</span>
+        <span th:text="${operation}=='modification'?'Modification Etudiant.e':'Nouveau.elle Etudiant.e'"
+              class="card-header text-center"></span>
         <div class="card-body">
             <form th:action="@{/etudiants}" th:object="${etudiantForm}" method="post">
                 <input th:if="${etudiantForm.idEtudiant}" th:field="*{idEtudiant}" th:value="${idEtudiant}" disabled
@@ -70,7 +70,8 @@
                     </select>
                 </div>
                 <div class="input-group addBottomMarge"></div>
-                <button type="submit" class="btn btn-success align-center">Ajouter</button>
+                <button type="submit" class="btn btn-success align-center"
+                        th:text="${operation}=='modification'?'Modifier': 'Ajouter' "></button>
             </form>
         </div>
     </article>
