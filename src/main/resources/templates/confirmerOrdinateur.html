@@ -14,33 +14,36 @@
     <article class="card-body">
         <section class="card-text">
             <div>
-                <span class="font-weight-bold">ID</span> <span class="lead" th:text="${ordinateur.idOrdinateur}"></span>
+                <span class="font-weight-bold">ID</span>
+                <span class="lead" th:text="${ordinateur.idOrdinateur}"></span>
             </div>
             <div>
-                <span class="font-weight-bold">Type </span> <span class="lead" th:text="${ordinateur.type}"></span>
-            </div>
-
-            <div>
-                <span class="font-weight-bold">Ram </span> <span class="lead" th:text="${ordinateur.ramEnGo}"></span>
+                <span class="font-weight-bold">Type </span>
+                <span class="lead" th:text="${ordinateur.type}"></span>
             </div>
 
             <div>
-                <span class="font-weight-bold">Processeur </span> <span class="lead"
-                                                                        th:text="${ordinateur.processeur}"></span>
+                <span class="font-weight-bold">Ram </span>
+                <span class="lead" th:text="${ordinateur.ramEnGo}+' GO'"></span>
             </div>
 
             <div>
-                <span class="font-weight-bold">Marque </span> <span class="lead" th:text="${ordinateur.marque}"></span>
+                <span class="font-weight-bold">Processeur </span>
+                <span class="lead" th:text="${ordinateur.processeur}"></span>
             </div>
 
             <div>
-                <span class="font-weight-bold">Capacite du disque  </span> <span class="lead"
-                                                                                 th:text="${ordinateur.capaciteDisqueEnGo}"></span>
+                <span class="font-weight-bold">Marque </span>
+                <span class="lead" th:text="${ordinateur.marque}"></span>
+            </div>
+
+            <div>
+                <span class="font-weight-bold">Capacite du disque  </span>
+                <span class="lead" th:text="${ordinateur.capaciteDisqueEnGo}+' GO'"></span>
             </div>
 
         </section>
-        <a th:href="@{/ordinateurs}" class="btn btn-sm btn-success">Aller vers la
-            liste des ordinateurs</a>
+        <a th:href="@{/ordinateurs}" class="btn btn-sm btn-success">Aller vers la liste des ordinateurs</a>
     </article>
 </section>
 </body>

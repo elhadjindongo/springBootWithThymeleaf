@@ -55,7 +55,7 @@ public class EtudiantController {
 
     //TODO: Handle DB Errors
     //TODO: pagination error(page not covered beyond the totalPages or < 0)
-    //BUG: Modification is not working
+
 
     @GetMapping(ETUDIANTS_ADD_URL)
     public String addEtudiant(ModelMap model) {
@@ -84,6 +84,8 @@ public class EtudiantController {
 
     @PostMapping(ETUDIANTS_URL)
     public String saveEtudiant(@Valid EtudiantForm etudiantForm, BindingResult bindingResult, ModelMap model) {
+
+        String operation = etudiantForm.getIdEtudiant() != null ? MODIFICATION : "";
         if (bindingResult.hasErrors()) {
             //Getting the All Ordinateurs
             List<Ordinateur> ordinateurList = ordinateurDao.findAll();
@@ -92,6 +94,7 @@ public class EtudiantController {
 
             model.addAttribute(ORDINATEUR_LIST, ordinateurList);
             model.addAttribute(FILLIERE_LIST, filliereList);
+            model.addAttribute(OPERATION, operation);
             return ADD_ETUDIANT_VUE;
         }
 
@@ -101,7 +104,6 @@ public class EtudiantController {
         Ordinateur ordinateur = ordinateurDao.getById(etudiantForm.getOrdinateurId());
         //Contruction de Etudiant
         Etudiant etudiant = null;
-        String operation = "";
         if (etudiantForm.getIdEtudiant() == null) {
             etudiant = new Etudiant(null,
                     etudiantForm.getPrenom(),
@@ -116,7 +118,6 @@ public class EtudiantController {
                     etudiantForm.getEmail(),
                     etudiantForm.getPhone(),
                     ordinateur, filliere);
-            operation = MODIFICATION;
         }
 
         etudiantDao.save(etudiant);

@@ -14,8 +14,8 @@
               class="card-header text-center"></span>
         <div class="card-body">
             <form th:action="@{/etudiants}" th:object="${etudiantForm}" method="post">
-                <input th:if="${etudiantForm.idEtudiant}" th:field="*{idEtudiant}" th:value="${idEtudiant}" disabled
-                       hidden>
+                <input th:if="${etudiantForm.idEtudiant}" th:field="*{idEtudiant}" th:value="${idEtudiant}"
+                       readonly hidden >
 
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">

@@ -63,7 +63,7 @@
                     </div>
                 </td>
                 <td>
-                    <a th:href="@{/etudiants/modify(id=${etudiant.idEtudiant}, page=${currentPage})}"
+                    <a th:href="@{/etudiants/modify(id=${etudiant.idEtudiant})}"
                        class="btn btn-sm btn-outline-warning">Modifier</a>
                     <a th:href="@{/etudiants/delete(id=${etudiant.idEtudiant}, page=${currentPage})}"
                        onclick="return confirm('Etes vous sur de vouloir supprimer ?')"

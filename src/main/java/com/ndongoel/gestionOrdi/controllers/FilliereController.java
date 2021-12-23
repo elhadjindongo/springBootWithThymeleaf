@@ -44,7 +44,7 @@ public class FilliereController {
 
     //TODO: Handle DB Errors
     //TODO: pagination error(page not covered beyond the totalPages or < 0)
-    //BUG: Modification is not working
+
 
     @GetMapping(FILLIERES_ID_URL)
     public Filliere getFilliere(@PathVariable Long id) {
@@ -68,10 +68,11 @@ public class FilliereController {
 
     @PostMapping(FILLIERES_URL)
     public String saveFilliere(@Valid Filliere filliere, BindingResult bindingResult, ModelMap model) {
+        String operation = null != filliere.getIdFilliere() ? MODIFICATION : "";
         if (bindingResult.hasErrors()) {
+            model.addAttribute(OPERATION, operation);
             return ADD_FILLIERE_VUE;
         }
-        String operation = null != filliere.getIdFilliere() ? MODIFICATION : "";
         filliereDao.save(filliere);
         model.addAttribute(FILLIERE, filliere);
         model.addAttribute(OPERATION, operation);

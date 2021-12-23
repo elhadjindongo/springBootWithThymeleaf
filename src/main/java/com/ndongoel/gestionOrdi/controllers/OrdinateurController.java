@@ -73,11 +73,11 @@ public class OrdinateurController {
 
     @PostMapping(ORDINATEURS_URL)
     public String saveFilliere(@Valid Ordinateur ordinateur, BindingResult bindingResult, ModelMap model) {
-
+        String operation = null == ordinateur.getIdOrdinateur() ? "" : MODIFICATION;
         if (bindingResult.hasErrors()) {
+            model.addAttribute(OPERATION, operation);
             return ADD_ORDINATEUR_VUE;
         }
-        String operation = null == ordinateur.getIdOrdinateur() ? "" : MODIFICATION;
 
         ordinateurDao.save(ordinateur);
         model.addAttribute(ORDINATEUR, ordinateur);

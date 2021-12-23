@@ -16,7 +16,7 @@
         <div class="card-body">
             <form th:action="@{/fillieres}" th:object="${filliere}" method="post">
                 <div class="input-group addBottomMarge">
-                    <input th:if="${idFilliere}" th:field="*{idFilliere}" th:value="${idFilliere}" hidden>
+                    <input th:if="${filliere.idFilliere}"  th:field="*{idFilliere}" th:value="${idFilliere}" readonly hidden >
 
                     <div class="input-group-prepend ">
                         <span class="input-group-text">Nom de la Filliere :</span>

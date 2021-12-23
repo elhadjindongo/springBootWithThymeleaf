@@ -10,7 +10,7 @@
 <section layout:fragment="content">
     <article>
     <span>
-      <a th:href="@{/ordinateurs/add}" class="btn btn-primary">Ajouter un Ordinateur</a>
+      <a th:href="@{/ordinateurs/add}" class="btn btn-success">Ajouter un Ordinateur</a>
     </span>
         <!--TODO: let the user to be able to change the number of elements in the page (5, 10, or 25)-->
         <!--TODO: let the user to be able to get the result sorting by marque, capaciteDisque, Ram -- asc or decs -->
@@ -38,7 +38,7 @@
                 <td th:text="${ordinateurs.processeur}"></td>
                 <td th:text="${ordinateurs.capaciteDisqueEnGo}"></td>
                 <td>
-                    <a th:href="@{/ordinateurs/modify(id=${ordinateurs.idOrdinateur}, page=${currentPage})}"
+                    <a th:href="@{/ordinateurs/modify(id=${ordinateurs.idOrdinateur})}"
                        class="btn btn-sm btn-outline-warning">Modifier</a>
                     <a th:href="@{/ordinateurs/delete(id=${ordinateurs.idOrdinateur},page=${currentPage})}"
                        onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
