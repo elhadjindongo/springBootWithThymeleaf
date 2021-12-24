@@ -28,17 +28,19 @@ public class OrdinateurController {
     public static final String ORDINATEUR = "ordinateur";
     public static final String OPERATION = "operation";
     public static final String MODIFICATION = "modification";
-    public static final String CONFIRMER_ORDINATEUR_VUE = "confirmerOrdinateur";
-    public static final String ADD_ORDINATEUR_VUE = "addOrdinateur";
-    public static final String ORDINATEURS_MODIFY_URL = "/ordinateurs/modify";
-    public static final String ORDINATEURS_DELETE_URL = "/ordinateurs/delete";
-    public static final String ORDINATEURS_VUE = "ordinateurs";
-    public static final String ORDINATEURS_URL = "/ordinateurs";
-    public static final String ORDINATEURS_ADD_URL = "/ordinateurs/add";
-    public static final String ORDINATEURS_ID_URL = "/ordinateurs/{id}";
     public static final String ORDINATEUR_LIST = "ordinateurList";
     public static final String CURRENT_PAGE = "currentPage";
     public static final String PAGES = "pages";
+
+    public static final String CONFIRMER_ORDINATEUR_VUE = "confirmerOrdinateur";
+    public static final String ADD_ORDINATEUR_VUE = "addOrdinateur";
+    public static final String ORDINATEURS_VUE = "ordinateurs";
+
+    public static final String ORDINATEURS_MODIFY_URL = "/admin/ordinateurs/modify";
+    public static final String ORDINATEURS_DELETE_URL = "/admin/ordinateurs/delete";
+    public static final String ORDINATEURS_URL = "/user/ordinateurs";
+    public static final String ORDINATEURS_ADD_URL = "/admin/ordinateurs/add";
+    public static final String ORDINATEURS_ID_URL = "/user/ordinateurs/{id}";
     @Autowired
     private OrdinateurDao ordinateurDao;
 
@@ -71,7 +73,7 @@ public class OrdinateurController {
         return ORDINATEURS_VUE;
     }
 
-    @PostMapping(ORDINATEURS_URL)
+    @PostMapping(ORDINATEURS_ADD_URL)
     public String saveFilliere(@Valid Ordinateur ordinateur, BindingResult bindingResult, ModelMap model) {
         String operation = null == ordinateur.getIdOrdinateur() ? "" : MODIFICATION;
         if (bindingResult.hasErrors()) {
@@ -94,7 +96,7 @@ public class OrdinateurController {
         org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException:
         Referential integrity constraint violation: */
         ordinateurDao.deleteById(id);
-        return "redirect:/ordinateurs?page=" + page + "&size=" + size;
+        return "redirect:/user/ordinateurs?page=" + page + "&size=" + size;
     }
 
     @GetMapping(ORDINATEURS_MODIFY_URL)

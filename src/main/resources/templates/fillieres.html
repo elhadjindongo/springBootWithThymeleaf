@@ -10,7 +10,7 @@
 <section layout:fragment="content">
     <article>
 <span>
-<a th:href="@{/fillieres/add}" class="btn btn-success">Ajouter une Filliere</a>
+<a th:href="@{/admin/fillieres/add}" class="btn btn-success">Ajouter une Filliere</a>
 </span>
 
         <!--TODO: let the user to be able to change the number of elements in the page (5, 10, or 25)-->
@@ -32,9 +32,9 @@
                 <td th:text="${filliere.idFilliere}"></td>
                 <td th:text="${filliere.nomFilliere}"></td>
                 <td>
-                    <a th:href="@{/fillieres/modify(id=${filliere.idFilliere})}"
+                    <a th:href="@{/admin/fillieres/modify(id=${filliere.idFilliere})}"
                        class="btn btn-sm btn-outline-warning">Modifier</a>
-                    <a th:href="@{/fillieres/delete(id=${filliere.idFilliere}, page=${currentPage})}"
+                    <a th:href="@{/admin/fillieres/delete(id=${filliere.idFilliere}, page=${currentPage})}"
                        onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
                        class="btn btn-sm btn-outline-danger">Supprimer</a></td>
                 </td>
@@ -45,18 +45,18 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item">
-                        <a class="page-link" th:href="@{/fillieres(page=${currentPage}-1)}" aria-label="Previous">
+                        <a class="page-link" th:href="@{/user/fillieres(page=${currentPage}-1)}" aria-label="Previous">
                             <span aria-hidden="true">«</span>
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
                     <li th:each="page,status : ${pages}"
                         th:class="${status.index} == ${currentPage} ? 'page-item active' : 'page-item' ">
-                        <a class="page-link" th:href="@{/fillieres(page=${status.index})}" th:text="${status.index}">
+                        <a class="page-link" th:href="@{/user/fillieres(page=${status.index})}" th:text="${status.index}">
                         </a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" th:href="@{/fillieres(page=${currentPage}+1)}" aria-label="Next">
+                        <a class="page-link" th:href="@{/user/fillieres(page=${currentPage}+1)}" aria-label="Next">
                             <span aria-hidden="true">»</span>
                             <span class="sr-only">Next</span>
                         </a>

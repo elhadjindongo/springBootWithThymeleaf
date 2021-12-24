@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main}">
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des ordinateurs</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<section class="card" layout:fragment="content">
+    <article class="card-body">
+        <section class="card-text">
+            <div>
+                <h4 class="text-center">A Propos / About</h4>
+            </div>
+            <div>
+                <div class="addBottomMarge text-center"><img width="200" height="200" class="img-thumbnail rounded" th:src="@{/img/elhadji.jpg}"/>
+                </div>
+
+                <p class="text-justify blockquote">Je suis El Hadji Magatte Ndongo, un ingenieur en Genie Logiciel fraichement diplomé de l 'Université Virtuelle du Sénégal.
+                Je me suis specialisé en developement Java, Spring et Spring boot.</p>
+                <hr width="50%">
+                <p class="text-justify blockquote">I am El Hadji Magatte Ndongo, a java software engineer recently graduated from Université Virtuelle du Sénégal.
+                I'm specialized in Java, Spring et Spring boot.</p>
+            </div>
+            <div>
+                <span class="lead font-weight-bold">Telephone / Phone : </span>
+                <span>+221 77 519 45 94.</span>
+            </div>
+            <div>
+                <span class="lead font-weight-bold">Email : </span>
+                <span class="blockquote">ndongoel@gmail.com</span>
+            </div>
+            <div>
+                <span class="lead font-weight-bold">Adresse / Address : </span>
+                <span class="blockquote">Mousdalifa, Tivaouane</span>
+                <span class="blockquote">Thiès, Sénégal (Afrique)</span>
+            </div>
+
+            <div>
+                <span class="lead font-weight-bold">LinkedIn: </span>
+                <a class="blockquote" href="https://www.linkedin.com/in/elhadjindongosofteng">linkedin.com/in/elhadjindongosofteng</a>
+            </div>
+            <div>
+                <span class="lead font-weight-bold">Github : </span>
+                <a class="blockquote" href="https://github.com/elhadjindongo">github.com/elhadjindongo</a>
+            </div>
+
+            <div>
+                <h4 class="text-center addBottomMarge "> A Propos du projet / About the project </h4>
+                <div class="addBottomMarge">
+                    <img class="img-fluid" th:src="@{/img/modelisation.png}"/>
+                </div>
+                <p class="text-justify blockquote">Au sein de l’université virtuelle du Sénégal, une machine est attribuée à chaque nouvel étudiant.
+                Mais les étudiants de la filière informatique rencontrent à chaque fois des problèmes de performance
+                machine lorsqu’ils font des cours de programmations avec des IDE.
+                Pour cela, nous souhaiterons identifier les machines attribuées aux étudiants suivant les filières
+                afin que chaque étudiant puisse avoir un ordinateur qui répond à ses besoins.
+                L’application doit être capable d’ajouter, de modifier, de supprimer et mettre à jour les
+                informations des étudiants, ordinateurs et filières dans la base de données.</p>
+
+                <hr width="50%">
+
+                <p class="text-justify blockquote">At Université Virtuelle du Sénégal, a laptop is attributed to each new student.
+                    But students majoring in computer science face laptop performance probleme when they practice
+                    programming courses & lab.
+                    Hence, We want to identify laptops attributed students in accordance to theirs major so that each
+                    student gets the laptop that response to its needs.
+                    The application has to provide the following functionalities: add, modify, delete & update infos
+                    about Students, computers & majors in the database.</p>
+            </div>
+            <blockquote class="blockquote blockquote-reverse">
+                <p class="mb-0 font-weight-bold">Technologies  </p>
+                <ul>
+                    <li class="blockquote-footer">Spring boot</li>
+                    <li class="blockquote-footer">Thymeleaf</li>
+                    <li class="blockquote-footer">Spring security (in memory)</li>
+                    <li class="blockquote-footer">Spring Data JPA</li>
+                    <li class="blockquote-footer">Spring MVC</li>
+                </ul>
+            </blockquote>
+        </section>
+    </article>
+</section>
+</body>
+</html>

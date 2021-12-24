@@ -28,17 +28,19 @@ public class FilliereController {
     public static final String FILLIERE = "filliere";
     public static final String OPERATION = "operation";
     public static final String MODIFICATION = "modification";
-    public static final String FILLIERES_DELETE_URL = "/fillieres/delete";
-    public static final String CONFIRMER_FILLIERE_VUE = "confirmerFilliere";
-    public static final String ADD_FILLIERE_VUE = "addFilliere";
-    public static final String FILLIERES_URL = "/fillieres";
-    public static final String FILLIERES_VUE = "fillieres";
     public static final String PAGES = "pages";
     public static final String CURRENT_PAGE = "currentPage";
     public static final String LIST_FILLIERES = "listFillieres";
-    public static final String FILLIERES_ADD_URL = "/fillieres/add";
-    public static final String FILLIERES_ID_URL = "/fillieres/{id}";
-    public static final String FILLIERES_MODIFY_URL = "/fillieres/modify";
+
+    public static final String CONFIRMER_FILLIERE_VUE = "confirmerFilliere";
+    public static final String ADD_FILLIERE_VUE = "addFilliere";
+    public static final String FILLIERES_VUE = "fillieres";
+
+    public static final String FILLIERES_ADD_URL = "/admin/fillieres/add";
+    public static final String FILLIERES_ID_URL = "/user/fillieres/{id}";
+    public static final String FILLIERES_MODIFY_URL = "/admin/fillieres/modify";
+    public static final String FILLIERES_DELETE_URL = "/admin/fillieres/delete";
+    public static final String FILLIERES_URL = "/user/fillieres";
     @Autowired
     private FilliereDao filliereDao;
 
@@ -66,7 +68,7 @@ public class FilliereController {
         return FILLIERES_VUE;
     }
 
-    @PostMapping(FILLIERES_URL)
+    @PostMapping(FILLIERES_ADD_URL)
     public String saveFilliere(@Valid Filliere filliere, BindingResult bindingResult, ModelMap model) {
         String operation = null != filliere.getIdFilliere() ? MODIFICATION : "";
         if (bindingResult.hasErrors()) {
@@ -87,7 +89,7 @@ public class FilliereController {
          Faudrais d'abord supprimer les etudiants ou les changer de filliere avant de pouvoir supprimer la filliere
         il faut personalliser l'erreur et le faire savoir a l'utilisateur*/
         filliereDao.deleteById(id);
-        return "redirect:/fillieres?page=" + page + "&size=" + size;
+        return "redirect:/user/fillieres?page=" + page + "&size=" + size;
 
     }
 

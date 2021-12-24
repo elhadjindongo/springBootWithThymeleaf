@@ -33,19 +33,21 @@ public class EtudiantController {
     public static final String ETUDIANT = "etudiant";
     public static final String OPERATION = "operation";
     public static final String MODIFICATION = "modification";
-    public static final String ADD_ETUDIANT_VUE = "addEtudiant";
     public static final String ETUDIANT_FORM = "etudiantForm";
     public static final String FILLIERE_LIST = "filliereList";
     public static final String ORDINATEUR_LIST = "ordinateurList";
-    public static final String ETUDIANTS_MODIFY_URL = "/etudiants/modify";
-    public static final String ETUDIANTS_DELETE_URL = "/etudiants/delete";
-    public static final String CONFIRMER_ETUDIANT_VUE = "confirmerEtudiant";
-    public static final String ETUDIANTS_URL = "/etudiants";
-    public static final String ETUDIANTS_VUE = "etudiants";
-    public static final String ETUDIANTS_ADD_URL = "/etudiants/add";
     public static final String PAGES = "pages";
     public static final String CURRENT_PAGE = "currentPage";
     public static final String LIST_ETUDIANTS = "listEtudiants";
+
+    public static final String ETUDIANTS_MODIFY_URL = "/admin/etudiants/modify";
+    public static final String ETUDIANTS_DELETE_URL = "/admin/etudiants/delete";
+    public static final String ETUDIANTS_ADD_URL = "/admin/etudiants/add";
+    public static final String ETUDIANTS_URL = "/user/etudiants";
+
+    public static final String ETUDIANTS_VUE = "etudiants";
+    public static final String ADD_ETUDIANT_VUE = "addEtudiant";
+    public static final String CONFIRMER_ETUDIANT_VUE = "confirmerEtudiant";
     @Autowired
     private EtudiantDao etudiantDao;
     @Autowired
@@ -82,7 +84,7 @@ public class EtudiantController {
         return ETUDIANTS_VUE;
     }
 
-    @PostMapping(ETUDIANTS_URL)
+    @PostMapping(ETUDIANTS_ADD_URL)
     public String saveEtudiant(@Valid EtudiantForm etudiantForm, BindingResult bindingResult, ModelMap model) {
 
         String operation = etudiantForm.getIdEtudiant() != null ? MODIFICATION : "";
@@ -132,7 +134,7 @@ public class EtudiantController {
                                  @RequestParam(name = PAGE, defaultValue = ZERO) int page,
                                  @RequestParam(name = SIZE, defaultValue = FIVE) int size) {
         etudiantDao.deleteById(id);
-        return "redirect:/etudiants?page=" + page + "&size=" + size;
+        return "redirect:/user/etudiants?page=" + page + "&size=" + size;
 
     }
 

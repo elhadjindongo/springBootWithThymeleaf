@@ -12,7 +12,7 @@
     <article class="card">
         <span th:text="${operation}=='modification'?'Modification Ordinateur':'Nouveau Ordinateur'" class="card-header text-center"></span>
         <div class="card-body">
-            <form th:action="@{/ordinateurs}" method="post">
+            <form th:action="@{/admin/ordinateurs/add}" method="post">
                 <div class="input-group addBottomMarge">
                     <input  th:if="${ordinateur.idOrdinateur}" name="idOrdinateur" th:value="${ordinateur.idOrdinateur}" readonly hidden>
 

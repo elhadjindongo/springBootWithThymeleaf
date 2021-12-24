@@ -14,7 +14,7 @@
               class="card-header text-center"></span>
 
         <div class="card-body">
-            <form th:action="@{/fillieres}" th:object="${filliere}" method="post">
+            <form th:action="@{/admin/fillieres/add}" th:object="${filliere}" method="post">
                 <div class="input-group addBottomMarge">
                     <input th:if="${filliere.idFilliere}"  th:field="*{idFilliere}" th:value="${idFilliere}" readonly hidden >
 

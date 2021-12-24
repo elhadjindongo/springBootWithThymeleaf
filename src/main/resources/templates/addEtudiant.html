@@ -13,7 +13,7 @@
         <span th:text="${operation}=='modification'?'Modification Etudiant.e':'Nouveau.elle Etudiant.e'"
               class="card-header text-center"></span>
         <div class="card-body">
-            <form th:action="@{/etudiants}" th:object="${etudiantForm}" method="post">
+            <form th:action="@{/admin/etudiants/add}" th:object="${etudiantForm}" method="post">
                 <input th:if="${etudiantForm.idEtudiant}" th:field="*{idEtudiant}" th:value="${idEtudiant}"
                        readonly hidden >
 
