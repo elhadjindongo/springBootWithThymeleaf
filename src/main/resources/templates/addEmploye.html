@@ -3,19 +3,19 @@
       layout:decorate="~{layout/main}">
 <head>
     <meta charset="utf-8">
-    <title>Ajouter un.e etudiant.e</title>
+    <title>Ajouter un.e employe.e</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <section layout:fragment="content">
     <article class="card">
-        <span th:text="${operation}=='modification'?'Modification Etudiant.e':'Nouveau.elle Etudiant.e'"
+        <span th:text="${operation}=='modification'?'Modification Employe.e':'Nouveau.elle Employe.e'"
               class="card-header text-center"></span>
         <div class="card-body">
-            <form th:action="@{/admin/etudiants/add}" th:object="${etudiantForm}" method="post">
-                <input th:if="${etudiantForm.idEtudiant}" th:field="*{idEtudiant}" th:value="${idEtudiant}"
-                       readonly hidden >
+            <form th:action="@{/admin/employes/add}" th:object="${employeForm}" method="post">
+                <input th:if="${employeForm.idEmploye}" th:field="*{idEmploye}" th:value="${idEmploye}"
+                       readonly hidden>
 
                 <div class="input-group addBottomMarge">
                     <div class="input-group-prepend ">
@@ -48,26 +48,6 @@
                     <input type="tel" class="form-control" th:field="*{phone}" th:value="${phone}" required>
                     <span th:if="${#fields.hasErrors('phone')}" class="text-danger"
                           th:errors="*{phone}"></span>
-                </div>
-                <div class="input-group addBottomMarge">
-                    <div class="input-group-prepend ">
-                        <span class="input-group-text">Filliere</span>
-                    </div>
-                    <select class="custom-select" th:field="*{filliereId}">
-                        <option th:each="filliereItem : ${filliereList}" th:value="${filliereItem.idFilliere}"
-                                th:text="${filliereItem.nomFilliere}"></option>
-                    </select>
-                </div>
-
-                <div class="input-group addBottomMarge">
-                    <div class="input-group-prepend ">
-                        <span class="input-group-text">Ordinateur</span>
-                    </div>
-                    <select class="custom-select" th:field="*{ordinateurId}">
-                        <option th:each="ordinateurItem : ${ordinateurList}"
-                                th:value="${ordinateurItem.idOrdinateur}"
-                                th:text="'Marque : '+${ordinateurItem.marque}+' -- Type : '+${ordinateurItem.type}+' -- Ram: '+${ordinateurItem.ramEnGo}+' -- Processeur : '+${ordinateurItem.processeur}+' -- Disque : '+${ordinateurItem.capaciteDisqueEnGo}"></option>
-                    </select>
                 </div>
                 <div class="input-group addBottomMarge"></div>
                 <button type="submit" class="btn btn-success align-center"

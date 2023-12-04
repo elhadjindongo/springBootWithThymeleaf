@@ -4,66 +4,65 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <title>Ordinateurs</title>
+    <title>Gestions des Employes</title>
 </head>
 <body>
 <section layout:fragment="content">
     <article>
-    <span>
-      <a th:href="@{/admin/ordinateurs/add}" class="btn btn-success">Ajouter un Ordinateur</a>
-    </span>
+        <span>
+            <a th:href="@{/admin/employes/add}" class="btn btn-success">Ajouter un.e employe.e</a>
+        </span>
+
         <!--TODO: let the user to be able to change the number of elements in the page (5, 10, or 25)-->
-        <!--TODO: let the user to be able to get the result sorting by marque, capaciteDisque, Ram -- asc or decs -->
     </article>
     <article class="card">
-        <span class="card-header text-center addBottomMarge">Liste des Ordinateurs</span>
+			<span class="card-header text-center addBottomMarge">Liste des
+				Employes.es</span>
         <table class="table table-hover">
             <thead class="thead-light ">
             <tr>
                 <th>Id</th>
-                <th>Marque</th>
-                <th>Type</th>
-                <th>Ram en Go</th>
-                <th>Processeur</th>
-                <th>Capacite Disque en Go</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="ordinateurs : ${ordinateurList}">
-                <td th:text="${ordinateurs.idOrdinateur}"></td>
-                <td th:text="${ordinateurs.marque}"></td>
-                <td th:text="${ordinateurs.type}"></td>
-                <td th:text="${ordinateurs.ramEnGo}"></td>
-                <td th:text="${ordinateurs.processeur}"></td>
-                <td th:text="${ordinateurs.capaciteDisqueEnGo}"></td>
+            <tr th:each="e : ${listEmployes}">
+                <td th:text="${e.idEmploye}"></td>
+                <td th:text="${e.nom}"></td>
+                <td th:text="${e.prenom}"></td>
+                <td th:text="${e.email}"></td>
+                <td th:text="${e.phone}"></td>
                 <td>
-                    <a th:href="@{/admin/ordinateurs/modify(id=${ordinateurs.idOrdinateur})}"
+                    <a th:href="@{/admin/employes/modify(id=${e.idEmploye})}"
                        class="btn btn-sm btn-outline-warning">Modifier</a>
-                    <a th:href="@{/admin/ordinateurs/delete(id=${ordinateurs.idOrdinateur},page=${currentPage})}"
+                    <a th:href="@{/admin/employes/delete(id=${e.idEmploye}, page=${currentPage})}"
                        onclick="return confirm('Etes vous sur de vouloir supprimer ?')"
                        class="btn btn-sm btn-outline-danger">Supprimer</a>
                 </td>
-
             </tr>
             </tbody>
         </table>
+
         <div class="card-footer">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item">
-                        <a class="page-link" th:href="@{/user/ordinateurs(page=${currentPage}-1)}" aria-label="Previous">
+                        <a class="page-link" th:href="@{/user/employes(page=${currentPage}-1)}" aria-label="Previous">
                             <span aria-hidden="true">«</span>
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
                     <li th:each="page,status : ${pages}"
                         th:class="${status.index} == ${currentPage} ? 'page-item active' : 'page-item' ">
-                        <a class="page-link" th:href="@{/user/ordinateurs(page=${status.index})}" th:text="${status.index}">
+                        <a class="page-link" th:href="@{/user/employes(page=${status.index})}" th:text="${status.index}">
                         </a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" th:href="@{/user/ordinateurs(page=${currentPage}+1)}" aria-label="Next">
+                        <a class="page-link" th:href="@{/user/employes(page=${currentPage}+1)}" aria-label="Next">
                             <span aria-hidden="true">»</span>
                             <span class="sr-only">Next</span>
                         </a>

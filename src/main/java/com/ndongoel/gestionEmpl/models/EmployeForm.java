@@ -1,7 +1,7 @@
 /********************************************************/
 /****** Created by El Hadji M. NDONGO ******************/
-/****** on 11/27/2021 ************************************/
-/****** Project: gestionOrdi *********************/
+/****** on 04/12/2021 ************************************/
+/****** Project: gestionEmploye *********************/
 /****************************************************/
 
 package com.ndongoel.gestionEmpl.models;
@@ -17,9 +17,9 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EtudiantForm {
+public class EmployeForm {
 
-    private Long idEtudiant;
+    private Long idEmploye;
     @NotNull
     @Size(min = 2, max = 200)
     private String prenom;
@@ -33,6 +33,4 @@ public class EtudiantForm {
     @NotNull
     @Size(min = 9, max = 12)
     private String phone;
-    private Long ordinateurId;
-    private Long filliereId;
 }
