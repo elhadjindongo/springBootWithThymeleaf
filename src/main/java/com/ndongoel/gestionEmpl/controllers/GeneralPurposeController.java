@@ -3,7 +3,7 @@
 /* on 12/23/2021              */
 /* Project: gestionOrdi       */
 
-package com.ndongoel.gestionOrdi.controllers;
+package com.ndongoel.gestionEmpl.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +16,4 @@ public class GeneralPurposeController {
         return "index";
     }
 
-    @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @RequestMapping("/forbidden")
-    public String forbidden() {
-        return "forbidden";
-    }
 }

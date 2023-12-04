@@ -2,10 +2,10 @@
 /* on 11/26/2021                    */
 /* Project: gestionOrdi             */
 
-package com.ndongoel.gestionOrdi.controllers;
+package com.ndongoel.gestionEmpl.controllers;
 
-import com.ndongoel.gestionOrdi.dao.OrdinateurDao;
-import com.ndongoel.gestionOrdi.entities.Ordinateur;
+import com.ndongoel.gestionEmpl.dao.OrdinateurDao;
+import com.ndongoel.gestionEmpl.entities.Ordinateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

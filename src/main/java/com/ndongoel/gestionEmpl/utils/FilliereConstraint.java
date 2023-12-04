@@ -4,7 +4,7 @@
 /****** Project: gestionOrdi *********************/
 /****************************************************/
 
-package com.ndongoel.gestionOrdi.utils;
+package com.ndongoel.gestionEmpl.utils;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

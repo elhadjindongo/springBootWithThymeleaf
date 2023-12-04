@@ -3,7 +3,7 @@
  * Author:  El Hadji M. NDONGO
  * Purpose: Defines the Class Ordinateur
  ***********************************************************************/
-package com.ndongoel.gestionOrdi.entities;
+package com.ndongoel.gestionEmpl.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

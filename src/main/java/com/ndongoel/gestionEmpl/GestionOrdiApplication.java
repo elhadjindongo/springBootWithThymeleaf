@@ -1,4 +1,4 @@
-package com.ndongoel.gestionOrdi;
+package com.ndongoel.gestionEmpl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

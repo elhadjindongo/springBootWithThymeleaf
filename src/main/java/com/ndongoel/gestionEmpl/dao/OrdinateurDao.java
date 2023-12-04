@@ -4,10 +4,10 @@
 /****** Project: gestionOrdi *********************/
 /****************************************************/
 
-package com.ndongoel.gestionOrdi.dao;
+package com.ndongoel.gestionEmpl.dao;
 
-import com.ndongoel.gestionOrdi.entities.Etudiant;
+import com.ndongoel.gestionEmpl.entities.Ordinateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EtudiantDao extends JpaRepository<Etudiant,Long> {
+public interface OrdinateurDao extends JpaRepository<Ordinateur,Long> {
 }

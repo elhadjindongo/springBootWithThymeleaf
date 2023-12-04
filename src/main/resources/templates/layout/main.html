@@ -15,32 +15,16 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <span class="navbar-brand"><a class="text-white nav-item nav-link" th:href="@{/}">GestionOrdi UVS</a></span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" th:href="@{/user/etudiants}">Etudiants</a>
-                </li>
+        <ul class="navbar-nav mr-auto">
+            <li class="navbar-brand">
+                <a class="text-white nav-item nav-link" th:href="@{/}">Accueil</a>
+            </li>
+            <li class="navbar-brand">
+                <a class="nav-link" th:href="@{/user/etudiants}">Employes</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/user/ordinateurs}">Ordinateurs</a></li>
-                <li class="nav-item ">
-                    <a class="nav-link" th:href="@{/user/fillieres}">Fillieres</a>
-                </li>
-
-                <div class="float-right d-flex">
-                    <li class="nav-item nav-link " th:text="${#httpServletRequest.remoteUser}"></li>
-                    <li class="nav-item "><a class="nav-link" th:href="@{/login?logout}">Se deconnecter</a></li>
-                </div>
-            </ul>
-        </div>
+        </ul>
     </nav>
 
 </header>
@@ -49,7 +33,7 @@
 </section>
 <footer class="myFooter bg-dark">
     <blockquote class="blockquote myfooterText">
-        <p class="mb-0 text-white">El Hadji M. NDONGO | Java Software Engineer | @2021</p>
+        <p class="mb-0 text-white">Ousseynou NGOM | DevOps Engineer | @2023</p>
     </blockquote>
 </footer>
 </body>

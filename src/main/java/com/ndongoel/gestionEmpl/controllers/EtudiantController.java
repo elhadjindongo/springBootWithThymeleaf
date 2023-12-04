@@ -2,15 +2,15 @@
 /* on 11/26/2021                    */
 /* Project: gestionOrdi             */
 
-package com.ndongoel.gestionOrdi.controllers;
+package com.ndongoel.gestionEmpl.controllers;
 
-import com.ndongoel.gestionOrdi.dao.EtudiantDao;
-import com.ndongoel.gestionOrdi.dao.FilliereDao;
-import com.ndongoel.gestionOrdi.dao.OrdinateurDao;
-import com.ndongoel.gestionOrdi.entities.Etudiant;
-import com.ndongoel.gestionOrdi.entities.Filliere;
-import com.ndongoel.gestionOrdi.entities.Ordinateur;
-import com.ndongoel.gestionOrdi.models.EtudiantForm;
+import com.ndongoel.gestionEmpl.dao.EtudiantDao;
+import com.ndongoel.gestionEmpl.dao.FilliereDao;
+import com.ndongoel.gestionEmpl.dao.OrdinateurDao;
+import com.ndongoel.gestionEmpl.entities.Etudiant;
+import com.ndongoel.gestionEmpl.entities.Filliere;
+import com.ndongoel.gestionEmpl.entities.Ordinateur;
+import com.ndongoel.gestionEmpl.models.EtudiantForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

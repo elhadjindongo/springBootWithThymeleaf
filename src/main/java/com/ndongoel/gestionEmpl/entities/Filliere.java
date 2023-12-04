@@ -3,10 +3,10 @@
  * Author:  El Hadji M. NDONGO
  * Purpose: Defines the Class Filliere
  ***********************************************************************/
-package com.ndongoel.gestionOrdi.entities;
+package com.ndongoel.gestionEmpl.entities;
 
 
-import com.ndongoel.gestionOrdi.utils.FilliereConstraint;
+import com.ndongoel.gestionEmpl.utils.FilliereConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

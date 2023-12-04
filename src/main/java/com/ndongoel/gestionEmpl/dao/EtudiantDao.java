@@ -4,10 +4,10 @@
 /****** Project: gestionOrdi *********************/
 /****************************************************/
 
-package com.ndongoel.gestionOrdi.dao;
+package com.ndongoel.gestionEmpl.dao;
 
-import com.ndongoel.gestionOrdi.entities.Filliere;
+import com.ndongoel.gestionEmpl.entities.Etudiant;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FilliereDao extends JpaRepository<Filliere,Long> {
+public interface EtudiantDao extends JpaRepository<Etudiant,Long> {
 }

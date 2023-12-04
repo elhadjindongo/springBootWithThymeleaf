@@ -4,7 +4,7 @@
 /****** Project: gestionOrdi *********************/
 /****************************************************/
 
-package com.ndongoel.gestionOrdi.models;
+package com.ndongoel.gestionEmpl.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -12,7 +12,7 @@
     <artifactId>GestionOrdi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>GestionOrdi</name>
-    <description>Project gestion attribution d&apos;ordinateur aux etudiants a UVS</description>
+    <description>Project gestion des employes simple avec thymeleaf</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -25,10 +25,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

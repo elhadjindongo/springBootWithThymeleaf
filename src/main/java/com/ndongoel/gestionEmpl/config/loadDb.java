@@ -4,14 +4,14 @@
 /****** Project: gestionOrdi *********************/
 /****************************************************/
 
-package com.ndongoel.gestionOrdi.config;
+package com.ndongoel.gestionEmpl.config;
 
-import com.ndongoel.gestionOrdi.dao.EtudiantDao;
-import com.ndongoel.gestionOrdi.dao.FilliereDao;
-import com.ndongoel.gestionOrdi.dao.OrdinateurDao;
-import com.ndongoel.gestionOrdi.entities.Etudiant;
-import com.ndongoel.gestionOrdi.entities.Filliere;
-import com.ndongoel.gestionOrdi.entities.Ordinateur;
+import com.ndongoel.gestionEmpl.dao.EtudiantDao;
+import com.ndongoel.gestionEmpl.dao.FilliereDao;
+import com.ndongoel.gestionEmpl.dao.OrdinateurDao;
+import com.ndongoel.gestionEmpl.entities.Etudiant;
+import com.ndongoel.gestionEmpl.entities.Filliere;
+import com.ndongoel.gestionEmpl.entities.Ordinateur;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
