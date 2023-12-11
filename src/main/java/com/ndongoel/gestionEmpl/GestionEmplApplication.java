@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GestionOrdiApplication {
+public class GestionEmplApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GestionOrdiApplication.class, args);
+		SpringApplication.run(GestionEmplApplication.class, args);
 	}
 
 }

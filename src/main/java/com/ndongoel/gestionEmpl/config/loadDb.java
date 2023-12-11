@@ -24,16 +24,16 @@ public class loadDb {
         return args -> {
 
                 //Etudiant
-                Employe etudiant1 = new Employe(null, "Fatou", "Seck " , "fatou.seck@ouz-tech.sn", "778974532");
-                Employe etudiant2 = new Employe(null, "Ousmane", "Diop ", "ousmane.diop@ouz-tech.sn", "787653423");
-                Employe etudiant3 = new Employe(null, "Dieynaba", "Cisse ", "dieynaba.cisse@ouz-tech.sn", "767890097");
-                Employe etudiant4 = new Employe(null, "Awa", "Ndiaye ", "awa.ndiaye@ouz-tech.sn", "767890098");
-                Employe etudiant5 = new Employe(null, "Abdoulaye", "Fall ", "abdoulaye.fall@ouz-tech.sn", "767890099");
-                log.info("Preloading -----------" + employeDao.save(etudiant1));
-                log.info("Preloading -----------" + employeDao.save(etudiant2));
-                log.info("Preloading -----------" + employeDao.save(etudiant3));
-                log.info("Preloading -----------" + employeDao.save(etudiant4));
-                log.info("Preloading -----------" + employeDao.save(etudiant5));
+                Employe employe1 = new Employe(null, "Fatou", "Seck " , "fatou.seck@ouz-tech.sn", "778974532");
+                Employe employe2 = new Employe(null, "Ousmane", "Diop ", "ousmane.diop@ouz-tech.sn", "787653423");
+                Employe employe3 = new Employe(null, "Dieynaba", "Cisse ", "dieynaba.cisse@ouz-tech.sn", "767890097");
+                Employe employe4 = new Employe(null, "Awa", "Ndiaye ", "awa.ndiaye@ouz-tech.sn", "767890098");
+                Employe employe5 = new Employe(null, "Abdoulaye", "Fall ", "abdoulaye.fall@ouz-tech.sn", "767890099");
+                log.info("Preloading -----------" + employeDao.save(employe1));
+                log.info("Preloading -----------" + employeDao.save(employe2));
+                log.info("Preloading -----------" + employeDao.save(employe3));
+                log.info("Preloading -----------" + employeDao.save(employe4));
+                log.info("Preloading -----------" + employeDao.save(employe5));
         };
     }
 }
